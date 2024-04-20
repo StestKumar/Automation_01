@@ -26,7 +26,7 @@ public class Registration {
         driver.findElement(by).sendKeys(text);
     }
 
-    public static String getTextofElement(By by) {
+    public static String getTextOfElement(By by) {
         driver.findElement(by).getText();
         return driver.findElement(by).getText();
     }
@@ -37,7 +37,8 @@ public class Registration {
     }
 
     @Test
-    public static void verifyThatUserisAbletoRegisterSuccessfully() {//Type URL
+    public static void verifyThatUserisAbletoRegisterSuccessfully() {
+        //Type URL
         driver.get("https://demo.nopcommerce.com/");
         //Click on Register
         findByElement(By.className("ico-register"));
@@ -62,8 +63,31 @@ public class Registration {
 
     }
 
-    @Test
-    public static void toVerifyThatUserIsAbleLoginSuccessfully() {
+   @Test
+    public static void toVerifyThatUserIsAbleLoginSuccessfully()
+    {
+        //Type URL
+        driver.get("https://demo.nopcommerce.com/");
+        //Click on Register
+        findByElement(By.className("ico-register"));
+
+        //Enter First Name
+        findText(By.id("FirstName"), "Shivam");
+
+        //Enter Last Name
+        findText(By.id("LastName"), "Dube");
+
+        //Enter Email id
+        findText(By.id("Email"), "shivamdube@gmail.com");
+
+        //Enter Password
+        findText(By.id("Password"), "Ipl2024");
+
+        //Confirm Password
+        findText(By.id("ConfirmPassword"), "Ipl2024");
+
+        //Click on Register Button
+        findByElement(By.id("register-button"));
 
         //Click on Login Button
         findByElement(By.className("ico-login"));
@@ -78,7 +102,7 @@ public class Registration {
         findByElement(By.xpath("//button[@class ='button-1 login-button']"));
 
         //Click on Electronics
-        findByElement(By.xpath("/html/body/div[6]/div[2]/ul[1]/li[2]/a"));
+        findByElement(By.linkText("Electronics"));
 
         //Click on Camera & Photo
         findByElement(By.xpath("/html/body/div[6]/div[3]/div/div[2]/div[1]/div[2]/ul/li[2]/ul/li[1]/a"));
@@ -102,32 +126,25 @@ public class Registration {
         findByElement(By.xpath("/html/body/div[6]/div[3]/div/div/div/div[2]/form/div[2]/button"));
 
         //Comparison of Expected msg with Actual msg
-
-
-        getTextofElement(By.xpath("/html/body/div[6]/div[3]/div/div/div/div[2]/div[2]"));
-        String Actualmsg = getTextofElement(By.xpath("/html/body/div[6]/div[3]/div/div/div/div[2]/div[2]"));
-        Assert.assertEquals(Actualmsg, Expectedmsg, "Your message has been sent");
+        Assert.assertEquals(getTextOfElement(By.xpath("//div[@class=result]")),Expectedmsg);
     }
-
 
 
     //SORRY NOT ABLE TO FIND A SOLUTION FOR THE 3rd PART
 
 
-
-
-  //  @Test
+    //  @Test
     //public static void verifyThatAlltheProductsHaveAddtoCartButton()
     //{
-        //Click on Electronics
-      //  findByElement(By.xpath("/html/body/div[6]/div[2]/ul[1]/li[2]/a"));
+    //Click on Electronics
+    //  findByElement(By.xpath("/html/body/div[6]/div[2]/ul[1]/li[2]/a"));
 
-        //Click on Camera & Photo
-        //findByElement(By.xpath("/html/body/div[6]/div[3]/div/div[2]/div[1]/div[2]/ul/li[2]/ul/li[1]/a"));
+    //Click on Camera & Photo
+    //findByElement(By.xpath("/html/body/div[6]/div[3]/div/div[2]/div[1]/div[2]/ul/li[2]/ul/li[1]/a"));
 
-        //Click on Add to cart Button of NikonD550 DSLR
-        //findByElement(By.xpath("/html/body/div[6]/div[3]/div/div[3]/div/div[2]/div[2]/div[2]/div/div/div[1]/div/div[2]/div[3]/div[2]/button[1]"));
+    //Click on Add to cart Button of NikonD550 DSLR
+    //findByElement(By.xpath("/html/body/div[6]/div[3]/div/div[3]/div/div[2]/div[2]/div[2]/div/div/div[1]/div/div[2]/div[3]/div[2]/button[1]"));
 
 
-    }
+}
 
